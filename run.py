@@ -10,7 +10,7 @@ import tools
 EXP='voc' #dataset
 NET_ID='vgg128_noup' #model name
 NUM_LABELS=21
-YEAR = 'VOC2010'
+YEAR = 'VOC2012'
 EXP= EXP + YEAR[-2:]
 
 #DATA_ROOT='/media/ali/VOCdevkit/VOC2010'

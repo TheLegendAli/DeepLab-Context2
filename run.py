@@ -17,7 +17,7 @@ EXP= EXP + YEAR[-2:]
 DATA_ROOT=subprocess.Popen('cd .. && pwd', stdout=subprocess.PIPE, shell=True).communicate()[0][:-1] + '/VOCdevkit/' + YEAR
 OLD_ROOT=''#only change if you are changing the path to images
 
-MODEL='DeepLab-MSc-LargeFOV'
+MODEL='DEEPLABV2-RESNET101'
 DEV_ID=0 #gpu id
 LOAD_MAT_FILE = 1
        

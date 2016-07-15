@@ -66,40 +66,17 @@ Please refer to our project [website](http://liangchiehchen.com/projects/DeepLab
 
 We have released several trained models and corresponding prototxt files at [here](http://liangchiehchen.com/projects/DeepLab_Models.html). Please check it for more model details.
 
-### Experimental set-up
+### Python wrapper requirements
 
-1. The scripts we used for our experiments can be downloaded from this [link](https://ucla.box.com/s/4grlj8yoodv95936uybukjh5m0tdzvrf):
-    1. run_pascal.sh: the script for training/testing on the PASCAL VOC 2012 dataset. __Note__ You also need to download sub.sed script.
-    2. run_densecrf.sh and run_densecrf_grid_search.sh: the scripts we used for post-processing the DCNN computed results by DenseCRF.
-2. The image list files used in our experiments can be downloaded from this [link](https://ucla.box.com/s/rd9z2xvwsfpksi7mi08i2xqrj7ab4keb):
-    * The zip file stores the list files for the PASCAL VOC 2012 dataset.
+1. Install wget library for python
+```
+sudo pip install wget
+```
+2. Change DATA_ROOT to point to the PASCAL images
+
 3. To use the mat_read_layer and mat_write_layer, please download and install [matio](http://sourceforge.net/projects/matio/files/matio/1.5.2/).
 
-### FAQ
-
-Check [FAQ](http://liangchiehchen.com/projects/DeepLab_FAQ.html) if you have some problems while using the code.
-
 ### How to run DeepLab
+python run.py
 
-There are several variants of DeepLab. To begin with, we suggest DeepLab-LargeFOV, which has good performance and faster training time.
-
-Suppose the codes are located at deeplab/code
-
-1. mkdir deeplab/exper (Create a folder for experiments)
-2. mkdir deeplab/exper/voc12 (Create a folder for your specific experiment. Let's take PASCAL VOC 2012 for example.)
-3. Create folders for config files and so on.
-    1. mkdir deeplab/exper/voc12/config  (where network config files are saved.)
-    2. mkdir deeplab/exper/voc12/features  (where the computed features will be saved (when train on train))
-    3. mkdir deeplab/exper/voc12/features2 (where the computed features will be saved (when train on trainval))
-    4. mkdir deeplab/exper/voc12/list (where you save the train, val, and test file lists)
-    5. mkdir deeplab/exper/voc12/log (where the training/test logs will be saved)
-    6. mkdir deeplab/exper/voc12/model (where the trained models will be saved)
-    7. mkdir deeplab/exper/voc12/res (where the evaluation results will be saved)
-4. mkdir deeplab/exper/voc12/config/deeplab_largeFOV (test your own network. Create a folder under config. For example, deeplab_largeFOV is the network you want to experiment with. Add your train.prototxt and test.prototxt in that folder (you can check some provided examples for reference).)
-5. Set up your init.caffemodel at deeplab/exper/voc12/model/deeplab_largeFOV. You may want to soft link init.caffemodel to the modified VGG-16 net. For example, run "ln -s vgg16.caffemodel init.caffemodel" at voc12/model/deeplab_largeFOV.
-6. Modify the provided script, run_pascal.sh, for experiments. You should change the paths according to your setting. For example, you should specify where the caffe is by changing CAFFE_DIR. Note You may need to modify sub.sed, if you want to replace some variables with your desired values in train.prototxt or test.prototxt.
-7. The computed features are saved at folders features or features2, and you can run provided MATLAB scripts to evaluate the results (e.g., check the script at code/matlab/my_script/EvalSegResults).
-
-### Python
-
-Seyed Ali Mousavi has implemented a python version of run_pascal.sh (Thanks, Ali!). If you are more familiar with Python, you may want to take a look at [this](https://github.com/TheLegendAli/CCVL).
+please note you need to define the paths and interested model in run.py

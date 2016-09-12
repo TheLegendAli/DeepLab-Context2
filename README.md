@@ -66,6 +66,10 @@ Please refer to our project [website](http://liangchiehchen.com/projects/DeepLab
 
 We have released several trained models and corresponding prototxt files at [here](http://liangchiehchen.com/projects/DeepLab_Models.html). Please check it for more model details.
 
+
+### Cudnn Version
+Works best with Cudnn4.
+
 ### Python wrapper requirements
 
 1. Install wget library for python
